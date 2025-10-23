@@ -1,0 +1,35 @@
+.top{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    background-color: #F1F6F9;
+
+    padding: 0 0 0 20px;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-self: flex-start;
+
+    background-color: inherit;
+    border-radius: 10px;
+}
+
+h1{
+    color: black;
+    font-family: Bungee;
+    font-style: italic;
+
+    font-size: small;
+    
+}

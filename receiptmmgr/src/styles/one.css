@@ -1,0 +1,108 @@
+.one-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3vh 1fr 10vh;
+
+  height: 100vh;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+
+}
+
+.one{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  grid-row: 2;
+
+  box-sizing: border-box;
+}
+
+.one .files{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #212121;
+  color: white;
+
+  height: 100%;
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+.one .files small{
+  color: white;
+  margin: 0 0 10px 0;
+
+  box-sizing: border-box;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  background-color: #F1F6F9;
+
+  padding: 5px;
+
+  box-sizing: border-box;
+
+  border-radius: 10px;
+}
+
+.buttons button{
+  background-color: #F1F6F9;
+
+  color: black;
+  
+  border:none;
+  outline: none;
+
+  height: 40px;
+  width: 40px;
+
+  box-sizing: border-box;
+}
+
+.receipt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1rem;
+
+  width: 200px;
+  height: 200px;
+
+  border: 2px dashed #ccc;
+
+  overflow: hidden;
+
+  color: white;
+
+  border-radius: 10px;
+
+  box-sizing: border-box;
+}
+
+.status-message{
+  background-color: #212121;
+}
+
+.status-message p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: white;
+  /* margin-top: 10px; */
+}

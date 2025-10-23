@@ -1,0 +1,5 @@
+functions-framework==3.*
+firebase-admin==6.*
+google-auth==2.*
+PyJWT==2.*
+requests==2.*
