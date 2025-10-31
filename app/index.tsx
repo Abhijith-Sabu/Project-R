@@ -1,32 +1,47 @@
-import { StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View, Text} from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import ProfileCircle from "@/components/profilecircle";
 import BottomNav from "@/components/bottomnav";
 import Receipt from "@/components/receipt";
 
+
 export default function App() {
   return (
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.mainContainer}>
 
-    <SafeAreaView style={styles.mainContainer}>
+          <View style={styles.row1}>
 
-        <View style={styles.row1}>
+            <ProfileCircle />
 
-          <ProfileCircle />
+          </View>
 
-        </View>
+          <View style={styles.row2} >
 
-        <View style={styles.row2} >
+            <Text
+            style={{color: 'white',
+              alignSelf: 'flex-start',
 
-          <Receipt />
+              fontWeight: '500',
+              fontSize: 16,
 
-        </View>
+              marginTop: 10,
+              marginBottom: 40,
+              marginLeft: 40,
+            }}
+            >Receipts from today</Text>
 
-        <View style={styles.row3} >
-          <BottomNav />
-        </View>
+            <Receipt />
 
-    </SafeAreaView>
+          </View>
+
+          <View style={styles.row3} >
+            <BottomNav />
+          </View>
+
+      </SafeAreaView>
+    </SafeAreaProvider>
 
   );
 }
@@ -34,12 +49,12 @@ export default function App() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: 'purple',
+    backgroundColor: '#1A1A1D',
   },
 
   row1: {
     flex: .5,
-    backgroundColor: 'white',
+    backgroundColor: '#1A1A1D',
     flexDirection: 'row-reverse',
 
     padding: 20,
@@ -51,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     padding: 10,
-    backgroundColor: 'red',
+    backgroundColor: '#1A1A1D',
   },
 
   row3: {
@@ -60,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
 
-    backgroundColor: 'blue',
+    backgroundColor: '#1A1A1D',
   },
 
 });

@@ -1,0 +1,68 @@
+import React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+
+import BottomNav from "@/components/bottomnav";
+
+export default function Settings() {
+    return (
+
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.settingsContainer}>
+
+        <View style={styles.row1}>
+            <View style={styles.row1text}>
+                <Text style={{color: 'white',
+                    alignSelf: 'flex-start',
+                    fontSize: 18,
+                    fontWeight: 'bold'}}>Settings</Text>
+            </View>
+        </View>
+
+        <View style={styles.row2}></View>
+
+        <View style={styles.row3}>
+            <BottomNav />
+        </View>
+
+            </SafeAreaView>
+        </SafeAreaProvider>
+    )
+}
+
+const styles = StyleSheet.create({
+
+    settingsContainer: {
+        flex: 1,
+
+        backgroundColor: '#1A1A1D'
+    },
+
+    row1: {
+        flex: 0.06,
+
+        backgroundColor: '#1A1A1D'
+    },
+
+    row1text: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        paddingLeft: 30,
+    },
+
+    row2: {
+        flex: 0.84,
+
+        backgroundColor: '#1A1A1D'
+    },
+
+    row3: {
+        flex: 0.1,
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        backgroundColor: '#1A1A1D'
+    }
+})

@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '15%',
 
-        backgroundColor: 'black',
-        borderRadius: 10
+        backgroundColor: 'white',
+        borderRadius: 100
     },
 
     profile: {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
 
-        borderRadius: 10,
-        backgroundColor: 'black'
+        borderRadius: 100,
+        backgroundColor: 'white'
     }
 })

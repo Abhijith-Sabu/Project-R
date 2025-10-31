@@ -1,44 +1,61 @@
 import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, View } from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { StyleSheet,
+View,
+TextInput,
+KeyboardAvoidingView,
+Platform,
+} from "react-native";
+
 
 export default function Chat() {
     return (
 
-        <SafeAreaView style={styles.chatContainer}>
+        <SafeAreaProvider>
+            <SafeAreaView style={{flex: 1, backgroundColor: '#1A1A1D'}}>
 
-            <View style={styles.topnav} ></View>
+                <KeyboardAvoidingView
+                style={{flex: 1,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+                behavior={Platform.OS === "ios" ? "padding" : "height"}
+                keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0}
+                >
 
-            <View style={styles.chatDisplay} ></View>
+                    <View style={styles.mainContainer}>
 
-            <View style={styles.chatInput} ></View>
+                    </View>
 
-        </SafeAreaView>
+                    <TextInput
+                    style={styles.inputField}
+                    placeholder="Type your question"
+                    placeholderTextColor="black"
+                    cursorColor='black'
+                    />
 
-    )
+                </KeyboardAvoidingView>
+                
+            </SafeAreaView>
+        </SafeAreaProvider>
+    );
 }
 
 const styles = StyleSheet.create({
-    chatContainer: {
+    mainContainer: {
         flex: 1,
-        backgroundColor: "yellow"
+        flexDirection: 'row',
+
+        backgroundColor: '#1A1A1D',
     },
 
-    topnav: {
-        flex: 0.5,
+    inputField: {
+        height: 60,
+        width: '90%',
 
-        backgroundColor: 'purple'
-    },
+        color: 'black',
+        backgroundColor: '#D3ECCD',
 
-    chatDisplay: {
-        flex: 6,
-
-        backgroundColor: 'skyblue'
-    },
-
-    chatInput: {
-        flex: 0.8,
-
-        backgroundColor: 'cyan'
-    },
+        borderRadius: 10
+    }
 })
