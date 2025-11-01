@@ -14,11 +14,11 @@ export default function ProfileCircle() {
 
 const styles = StyleSheet.create({
     circleContainer: {
-        height: '100%',
-        width: '15%',
+        height: 60,
+        width: 60,
 
         backgroundColor: 'white',
-        borderRadius: 100
+        borderRadius: 30,
     },
 
     profile: {

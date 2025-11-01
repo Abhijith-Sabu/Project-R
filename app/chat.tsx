@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet,
 View,
 TextInput,
@@ -11,24 +11,23 @@ Platform,
 export default function Chat() {
     return (
 
-        <SafeAreaProvider>
-            <SafeAreaView style={styles.mainContainer}>
+        <SafeAreaView style={styles.mainContainer}>
 
-                <View style={styles.row1}></View>
+            <View style={styles.row1}></View>
 
-                <KeyboardAvoidingView style={styles.row2}
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                >
-                    <View style={styles.display}></View>
-                                    
-                    <View style={styles.row3}>
-                        <TextInput style={styles.textInput}></TextInput>
-                    </View>
+            <KeyboardAvoidingView style={styles.row2}
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            keyboardVerticalOffset={100}
+            >   
+                <View style={styles.display}></View>
+            
+            </KeyboardAvoidingView>
+                                
+                <View style={styles.row3}>
+                    <TextInput style={styles.textInput}></TextInput>
+                </View>
 
-                </KeyboardAvoidingView>
-
-            </SafeAreaView>
-        </SafeAreaProvider>
+        </SafeAreaView>
     );
 }
 
@@ -53,9 +52,6 @@ const styles = StyleSheet.create({
 
     display: {
         flex: 1,
-
-        // borderWidth: 1,
-        // borderBlockColor: 'black'
     },
 
     row3: {
@@ -63,8 +59,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-
-        paddingBottom: 8,
 
         backgroundColor: 'blue',
     },

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { View, StyleSheet, Text, Button, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { CameraView, CameraType, useCameraPermissions} from 'expo-camera'
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
@@ -11,54 +11,78 @@ export default function Camera() {
     const [facing, setFacing] = useState<CameraType>('back');
     const [permission, requestPermission] = useCameraPermissions();
 
+    console.log("Permission:", permission)
+
     if (!permission) {
         return <View />;
     }
 
-    if (!permission.granted) {
-        return (
-            <View style={styles.cameraContainer}>
-                <Text style={styles.message}>We need your permission to access the camera</Text>
-                <Button onPress={requestPermission} title="grant permission" />
-            </View>
-        );
-    }
+    // if (!permission.granted) {
+    //     return (
+    //         <View style={styles.msgContainer}>
+    //             <View style={styles.miniMsgContainer}>
+    //                 <Text style={styles.message}>We need your permission to access the camera</Text>
+    //                 <TouchableOpacity style={styles.permissionContainer} onPress={requestPermission}>
+    //                     <Text style={styles.permissionButton}>Grant Permission</Text>
+    //                 </TouchableOpacity>
+    //             </View>
+    //         </View>
+    //     );
+    // }
 
     function toggleCameraFacing() {
         setFacing(current => (current === 'back' ? 'front' : 'back'))
     }
     return (
-        <SafeAreaProvider>
-            <SafeAreaView style={styles.cameraContainer}>
+        
+        <SafeAreaView style={styles.cameraContainer}>
 
-                <View style={styles.row1}></View>
+            <View style={styles.row1}></View>
 
-                <View style={styles.row2}>
-                    <CameraView style={styles.camera} facing={facing} />
-                </View>
+            <View style={styles.row2}>
+                <CameraView style={styles.camera} facing={facing} />
 
-                <View style={styles.row3}>
-                    <View style={styles.miniCol1}></View>
-
-                    <View style={styles.miniCol2}>
-                        <View style={styles.buttonContainer}>
-                            <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-                                <MaterialCommunityIcons name="camera-iris" size={44} color="white" />
+                {!permission.granted ? 
+                    <View style={styles.permissionOverlay}>
+                        <View style={styles.miniMsgContainer}>
+                            <Text style={styles.message}>We need your permission to access the camera</Text>
+                            <TouchableOpacity style={styles.permissionContainer} onPress={() => {
+                                if (permission.canAskAgain) {
+                                    requestPermission();
+                                } else {
+                                    alert("Camera Permission has been permanently denied. Please enable it from system settings.")
+                                }
+                            }}>
+                                <Text style={styles.permissionButton}>Grant Permission</Text>
                             </TouchableOpacity>
                         </View>
-                    </View>
+                    </View> :
 
-                    <View style={styles.miniCol3}>
-                        <View style={styles.buttonContainer}>
-                            <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-                                <MaterialIcons name="flip-camera-android" size={34} color="white" />
-                            </TouchableOpacity>
-                        </View>
+                    undefined
+                }
+            </View>
+
+            <View style={styles.row3}>
+                <View style={styles.miniCol1}></View>
+
+                <View style={styles.miniCol2}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button}>
+                            <MaterialCommunityIcons name="camera-iris" size={44} color="white" />
+                        </TouchableOpacity>
                     </View>
                 </View>
 
-            </SafeAreaView>
-        </SafeAreaProvider>
+                <View style={styles.miniCol3}>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+                            <MaterialIcons name="flip-camera-android" size={34} color="white" />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+        </SafeAreaView>
     )
 }
 
@@ -80,16 +104,62 @@ const styles = StyleSheet.create({
     },
 
     msgContainer: {
+        flex: 1,
 
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        backgroundColor: 'transparent'
+    },
+
+    miniMsgContainer: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        height: 200,
+        width: 250,
+
+        gap: 20,
+        padding: 10,
+
+        borderRadius: 10,
+        backgroundColor: '#06923E',
     },
 
     message: {
         textAlign: 'center',
         paddingBottom: 10,
+
+        color: 'white'
+    },
+
+    permissionContainer: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        height: 50,
+        width: 150,
+
+        borderRadius: 10,
+
+        backgroundColor: '#212121'
+    },
+
+    permissionButton:{
+        color: 'white',
     },
 
     camera: {
         flex: 1,
+    },
+
+    permissionOverlay: {
+        ...StyleSheet.absoluteFillObject,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.6'
     },
 
     buttonContainer: {

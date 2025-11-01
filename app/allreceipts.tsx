@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet, View, Pressable } from "react-native";
 import { Link } from "expo-router";
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -10,7 +10,6 @@ import BottomNav from "@/components/bottomnav";
 export default function AllReceipts() {
     return (
 
-        <SafeAreaProvider>
             <SafeAreaView style={styles.receiptContainer} >
 
                 <View style={styles.topnav} >
@@ -32,7 +31,6 @@ export default function AllReceipts() {
                 </View>
 
             </SafeAreaView>
-        </SafeAreaProvider> 
     )
 }
 
