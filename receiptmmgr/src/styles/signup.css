@@ -1,0 +1,67 @@
+.signup-container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-color: #f1f6f9;
+}
+
+.signup-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.signup-card {
+  max-width: 420px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px -25px rgba(15, 23, 42, 0.6);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.signup-card h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: #0f172a;
+}
+
+.signup-card p {
+  margin: 1rem 0 2rem;
+  color: #475569;
+}
+
+.google-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4285f4, #34a853);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-button:hover:enabled {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px -20px rgba(66, 133, 244, 0.8);
+}
+
+.google-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.signup-error {
+  margin-top: 1.5rem;
+  color: #dc2626;
+  font-size: 0.95rem;
+}

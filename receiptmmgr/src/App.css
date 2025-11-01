@@ -5,3 +5,12 @@ html, body{
 
     margin: 0;
 }
+
+.route-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
