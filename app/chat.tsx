@@ -12,30 +12,21 @@ export default function Chat() {
     return (
 
         <SafeAreaProvider>
-            <SafeAreaView style={{flex: 1, backgroundColor: '#1A1A1D'}}>
+            <SafeAreaView style={styles.mainContainer}>
 
-                <KeyboardAvoidingView
-                style={{flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}
-                behavior={Platform.OS === "ios" ? "padding" : "height"}
-                keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 0}
+                <View style={styles.row1}></View>
+
+                <KeyboardAvoidingView style={styles.row2}
+                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 >
-
-                    <View style={styles.mainContainer}>
-
+                    <View style={styles.display}></View>
+                                    
+                    <View style={styles.row3}>
+                        <TextInput style={styles.textInput}></TextInput>
                     </View>
 
-                    <TextInput
-                    style={styles.inputField}
-                    placeholder="Type your question"
-                    placeholderTextColor="black"
-                    cursorColor='black'
-                    />
-
                 </KeyboardAvoidingView>
-                
+
             </SafeAreaView>
         </SafeAreaProvider>
     );
@@ -44,18 +35,46 @@ export default function Chat() {
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
-        flexDirection: 'row',
 
         backgroundColor: '#1A1A1D',
     },
 
-    inputField: {
-        height: 60,
+    row1: {
+        flex: 0.1,
+
+        backgroundColor: 'red',
+    },
+
+    row2: {
+        flex: 0.9,
+
+        backgroundColor: 'white',
+    },
+
+    display: {
+        flex: 1,
+
+        // borderWidth: 1,
+        // borderBlockColor: 'black'
+    },
+
+    row3: {
+        flex: 0.1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        paddingBottom: 8,
+
+        backgroundColor: 'blue',
+    },
+
+    textInput: {
+        height: 55,
         width: '90%',
 
-        color: 'black',
-        backgroundColor: '#D3ECCD',
+        borderRadius: 50,
 
-        borderRadius: 10
+        backgroundColor: 'green'
     }
 })
