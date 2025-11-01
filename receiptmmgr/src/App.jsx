@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Top from './components/top';
 import One from './components/one';
 import Two from './components/two';
 import Three from './components/three';
+import Signup from './components/auth/Signup.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 import './App.css'
 
 function App() {
@@ -19,10 +21,23 @@ function App() {
     <Router >
       <Routes>
 
-        <Route path="/" element={<One onExtracted={handleDataExtracted} />} />
-        <Route path="/chat" element={<Two />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={
+          <PrivateRoute>
+            <One onExtracted={handleDataExtracted} />
+          </PrivateRoute>
+        } />
+        <Route path="/chat" element={
+          <PrivateRoute>
+            <Two />
+          </PrivateRoute>
+        } />
 
-        <Route path="/receipts" element={<Three extractedData={extractedData} />} />
+        <Route path="/receipts" element={
+          <PrivateRoute>
+            <Three extractedData={extractedData} />
+          </PrivateRoute>
+        } />
 
       </Routes>
     </Router> 
