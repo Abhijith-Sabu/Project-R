@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+
 type ReceiptProps = {
     id: number;
     amount: number;
@@ -134,8 +135,11 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
 
-        backgroundColor: '#D3ECCD',
+        // backgroundColor: '#D3ECCD',
+        backgroundColor: '#212121',
 
+        elevation: 50,
+        
         // borderWidth:1,
         // borderColor: 'red',
     }

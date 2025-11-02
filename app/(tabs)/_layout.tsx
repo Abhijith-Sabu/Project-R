@@ -23,6 +23,7 @@ export default function RootLayout() {
       
       height: 50,
       width: '80%',
+      maxWidth: 600,
 
       backgroundColor: '#06923E',
 
