@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { StyleSheet, View, Text, ScrollView} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import ProfileCircle from "@/components/profilecircle";
-import BottomNav from "@/components/bottomnav";
 import Receipt from "@/components/receipt";
 
 
@@ -36,7 +36,8 @@ export default function App() {
           >
 
             <Text
-            style={{color: 'white',
+            style={{              
+              color: 'white',
               alignSelf: 'flex-start',
 
               fontWeight: '500',
@@ -58,7 +59,6 @@ export default function App() {
           </ScrollView>
 
           <View style={styles.row3} >
-            <BottomNav />
           </View>
 
       </SafeAreaView>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
 
   row1: {
-    flex: .1,
+    flex: .06,
     flexDirection: 'row-reverse',
 
     backgroundColor: '#1A1A1D',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
 
   row3: {
-    flex: 0.15,
+    flex: 0.12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

@@ -20,10 +20,6 @@ export default function Settings() {
 
             <View style={styles.row2}></View>
 
-            <View style={styles.row3}>
-                <BottomNav />
-            </View>
-
         </SafeAreaView>
     )
 }
@@ -51,16 +47,8 @@ const styles = StyleSheet.create({
     },
 
     row2: {
-        flex: 0.84,
+        flex: 0.94,
 
         backgroundColor: '#1A1A1D'
     },
-
-    row3: {
-        flex: 0.1,
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        backgroundColor: '#1A1A1D'
-    }
 })
