@@ -1,9 +1,9 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, View, Pressable, ScrollView } from "react-native";
+import { StyleSheet, View, Pressable, FlatList } from "react-native";
 import { Link } from "expo-router";
-import Ionicons from '@expo/vector-icons/Ionicons';
 
+import Ionicons from '@expo/vector-icons/Ionicons';
 import Receipt from "@/components/receipt";
 
 export default function AllReceipts() {
@@ -25,30 +25,28 @@ export default function AllReceipts() {
 
             <SafeAreaView style={styles.receiptContainer} >
 
-                <View style={styles.topnav} >
-                    <Link href="/settings" asChild>
-                        <Pressable style={styles.settings}>
-                            <Ionicons name="settings" size={24} color="white" />
-                        </Pressable>
-                    </Link>
-                </View>
+                    <View style={styles.topnav} >
+                        <Link href="/settings" asChild>
+                            <Pressable style={styles.settings}>
+                                <Ionicons name="settings" size={24} color="white" />
+                            </Pressable>
+                        </Link>
+                    </View>
 
-                <ScrollView
-                style={styles.receiptScroll}
-                contentContainerStyle={styles.receipts}
-                >
-
-                    {data.map((item) =>
-                    <Receipt key={item.id}
+                <FlatList
+                style={{flex:1}}
+                contentContainerStyle={styles.receiptScroll}
+                data={data}
+                keyExtractor={( item ) => item.id.toString()}
+                renderItem={({ item }) => (
+                    <Receipt
                     id={item.id}
                     amount={item.amount}
-                    date={item.date}/>
-                    )}
+                    date={item.date} />
+                )}
+                />
 
-                </ScrollView>
-
-                <View style={styles.bottomnav}>
-                </View>
+                <View style={styles.bottomnav}></View>
 
             </SafeAreaView>
     )
@@ -77,14 +75,14 @@ const styles = StyleSheet.create({
     },
 
     receiptScroll: {
-        flex: 1,
-    },
-
-    receipts: {
+        flexDirection: 'column',
         alignItems: 'center',
+        justifyContent: 'center',
 
-        padding: 8,
-        backgroundColor: '#1A1A1D'
+        padding: 10,
+
+        // borderWidth:10,
+        // borderColor: 'red',
     },
 
     bottomnav: {

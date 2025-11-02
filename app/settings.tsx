@@ -2,8 +2,6 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import BottomNav from "@/components/bottomnav";
-
 export default function Settings() {
     return (
 

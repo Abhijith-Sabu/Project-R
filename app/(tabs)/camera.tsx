@@ -2,9 +2,11 @@ import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { CameraView, CameraType, useCameraPermissions} from 'expo-camera'
+import { Link } from "expo-router";
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Camera() {
 
@@ -17,19 +19,6 @@ export default function Camera() {
         return <View />;
     }
 
-    // if (!permission.granted) {
-    //     return (
-    //         <View style={styles.msgContainer}>
-    //             <View style={styles.miniMsgContainer}>
-    //                 <Text style={styles.message}>We need your permission to access the camera</Text>
-    //                 <TouchableOpacity style={styles.permissionContainer} onPress={requestPermission}>
-    //                     <Text style={styles.permissionButton}>Grant Permission</Text>
-    //                 </TouchableOpacity>
-    //             </View>
-    //         </View>
-    //     );
-    // }
-
     function toggleCameraFacing() {
         setFacing(current => (current === 'back' ? 'front' : 'back'))
     }
@@ -37,7 +26,13 @@ export default function Camera() {
         
         <SafeAreaView style={styles.cameraContainer}>
 
-            <View style={styles.row1}></View>
+            <View style={styles.row1}>
+                <Link href="/" asChild>
+                    <TouchableOpacity style={styles.backButton}>
+                        <Ionicons name="chevron-back" size={34} color="#06923E" />
+                    </TouchableOpacity>
+                </Link>
+            </View>
 
             <View style={styles.row2}>
                 <CameraView style={styles.camera} facing={facing} />
@@ -96,6 +91,21 @@ const styles = StyleSheet.create({
 
     row1: {
         flex: 0.1,
+        flexDirection: 'row',
+        alignItems: 'center',
+
+        backgroundColor: '#1A1A1D',
+
+        paddingHorizontal: 20,
+    },
+
+    backButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+
+        height: 40,
+        width: 40,
+
         backgroundColor: '#1A1A1D'
     },
 

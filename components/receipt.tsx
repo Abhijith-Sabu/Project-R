@@ -41,7 +41,8 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
 
                 </View>
 
-                <View style={styles.receiptBody} ></View>
+                <View style={styles.receiptBody} >
+                </View>
 
             </View>
     )
@@ -57,9 +58,8 @@ const styles = StyleSheet.create({
     },
 
     receiptHead: {
-        flex: 1,
         flexDirection: 'row',
-        height: '20%',
+        height: 45,
         width: '100%',
 
         borderTopRightRadius: 10,
@@ -128,12 +128,15 @@ const styles = StyleSheet.create({
     },
 
     receiptBody: {
-        height: '80%',
-        width: '100%',
+        height: 150,
+        minWidth: '100%',
 
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
 
         backgroundColor: '#D3ECCD',
+
+        // borderWidth:1,
+        // borderColor: 'red',
     }
 })
