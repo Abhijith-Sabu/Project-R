@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text} from "react-native";
+import { StyleSheet, View, Text, ScrollView} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import ProfileCircle from "@/components/profilecircle";
@@ -7,6 +7,20 @@ import Receipt from "@/components/receipt";
 
 
 export default function App() {
+
+      const data = [
+        { id: 1, amount: 345, date: new Date() },
+        { id: 2, amount: 120, date: new Date() },
+        { id: 3, amount: 999, date: new Date() },
+        { id: 4, amount: 200, date: new Date() },
+        { id: 5, amount: 200, date: new Date() },
+        { id: 6, amount: 200, date: new Date() },
+        { id: 7, amount: 200, date: new Date() },
+        { id: 8, amount: 200, date: new Date() },
+        { id: 9, amount: 200, date: new Date() },
+        { id: 10, amount: 200, date: new Date() },
+      ];
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.mainContainer}>
@@ -17,7 +31,9 @@ export default function App() {
 
           </View>
 
-          <View style={styles.row2} >
+          <ScrollView style={styles.scroll}
+          contentContainerStyle={styles.scrollContent}
+          >
 
             <Text
             style={{color: 'white',
@@ -28,13 +44,18 @@ export default function App() {
 
               marginTop: 10,
               marginBottom: 40,
-              marginLeft: 40,
+              marginLeft: 20,
             }}
-            >Receipts from today</Text>
+            >
+              Receipts from today
+            </Text>
+            
+            {data.map((item) => ( <Receipt key={item.id}
+            id={item.id}
+            amount={item.amount}
+            date={item.date}/> ))}
 
-            <Receipt />
-
-          </View>
+          </ScrollView>
 
           <View style={styles.row3} >
             <BottomNav />
@@ -53,15 +74,20 @@ const styles = StyleSheet.create({
   },
 
   row1: {
-    flex: .5,
-    backgroundColor: '#1A1A1D',
+    flex: .1,
     flexDirection: 'row-reverse',
+
+    backgroundColor: '#1A1A1D',
 
     padding: 20,
   },
 
-  row2: {
-    flex: 6,
+  scroll: {
+    flex: 1,
+    backgroundColor: '#1A1A1D',
+  },
+
+  scrollContent: {
     flexDirection: 'column',
     alignItems: 'center',
 
@@ -70,7 +96,7 @@ const styles = StyleSheet.create({
   },
 
   row3: {
-    flex: 0.8,
+    flex: 0.15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

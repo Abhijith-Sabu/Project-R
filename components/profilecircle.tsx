@@ -14,8 +14,8 @@ export default function ProfileCircle() {
 
 const styles = StyleSheet.create({
     circleContainer: {
-        height: 60,
-        width: 60,
+        height: 50,
+        width: 50,
 
         backgroundColor: 'white',
         borderRadius: 30,

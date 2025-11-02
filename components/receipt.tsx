@@ -1,40 +1,58 @@
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-export default function Receipt() {
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+type ReceiptProps = {
+    id: number;
+    amount: number;
+    date: Date;
+};
+
+export default function Receipt({id, amount, date}: ReceiptProps) {
 
     const today = new Date();
     const formattedDate = today.toDateString();
 
     return (
 
-        <View style={styles.receiptContainer} >
+            <View style={styles.receiptContainer} >
 
-            <View style={styles.receiptHead} >
-                <View style={styles.headCol1}>
-                    <Text style={styles.dateContainer}>
-                        {formattedDate}
-                    </Text>
+                <View style={styles.receiptHead} >
+
+                    <View style={styles.headCol1}>
+                        <View style={styles.id}>
+                            <Text style={styles.idText}
+                            >{id}</Text>
+                        </View>
+
+                        <Text style={styles.dateContainer}>
+                            {formattedDate}
+                        </Text>
+                    </View>
+
+                    <View style={styles.headCol2}>
+                        <Text style={styles.amountContainer}>
+                            ₹: {amount}
+                        </Text>
+                        <TouchableOpacity style={styles.deleteButton}>
+                            <MaterialIcons name="delete-outline" size={24} color="black" />
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
 
-                <View style={styles.headCol2}>
-                    <Text style={styles.amountContainer}>
-                        345
-                    </Text>
-                </View>
+                <View style={styles.receiptBody} ></View>
+
             </View>
-
-            <View style={styles.receiptBody} ></View>
-
-        </View>
     )
 }
 
 const styles = StyleSheet.create({
     receiptContainer: {
-        height: '30%',
+        height: 200,
         width: '90%',
 
+        paddingBottom: 8,
         borderRadius: 10,
     },
 
@@ -51,9 +69,11 @@ const styles = StyleSheet.create({
 
     headCol1: {
         flex: 0.5,
-
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+
+        position: 'relative',
 
         borderTopLeftRadius: 10,
     },
@@ -61,19 +81,50 @@ const styles = StyleSheet.create({
     dateContainer: {
         color: 'white',
 
+        paddingLeft: 20,
+    },
+
+    id: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 25,
+        width: 25,
+
+        position: 'absolute',
+
+        left: 10, 
+
+        borderRadius: 8,
+
+        backgroundColor: '#000000'
+    },
+
+    idText: {
+        color: '#D3ECCD',
     },
 
     headCol2: {
         flex: 0.5,
+        flexDirection: 'row',
 
         alignItems: 'center',
         justifyContent: 'center',
 
+        position: 'relative',
+        
         borderTopRightRadius: 10,
+
+        // borderWidth:1,
+        // borderColor: 'red',
     },
 
     amountContainer: {
         color: 'white',
+    },
+
+    deleteButton: {
+        position: 'absolute',
+        right: 10,
     },
 
     receiptBody: {
