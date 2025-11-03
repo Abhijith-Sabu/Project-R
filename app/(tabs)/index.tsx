@@ -1,26 +1,27 @@
-import { StyleSheet, View, Text, ScrollView} from "react-native";
+import { StyleSheet, View, ScrollView, TouchableOpacity} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import ProfileCircle from "@/components/profilecircle";
 import Receipt from "@/components/receipt";
 
+import Entypo from '@expo/vector-icons/Entypo';
 
-export default function App() {
+export default function Index() {
 
-      const data = [
-        { id: 1, amount: 345, date: new Date() },
-        { id: 2, amount: 120, date: new Date() },
-        { id: 3, amount: 999, date: new Date() },
-        { id: 4, amount: 200, date: new Date() },
-        { id: 5, amount: 200, date: new Date() },
-        { id: 6, amount: 200, date: new Date() },
-        { id: 7, amount: 200, date: new Date() },
-        { id: 8, amount: 200, date: new Date() },
-        { id: 9, amount: 200, date: new Date() },
-        { id: 10, amount: 200, date: new Date() },
-      ];
+  const data = [
+    { id: 1, amount: 345, date: new Date() },
+    { id: 2, amount: 120, date: new Date() },
+    { id: 3, amount: 999, date: new Date() },
+    { id: 4, amount: 200, date: new Date() },
+    { id: 5, amount: 200, date: new Date() },
+    { id: 6, amount: 200, date: new Date() },
+    { id: 7, amount: 200, date: new Date() },
+    { id: 8, amount: 200, date: new Date() },
+    { id: 9, amount: 200, date: new Date() },
+    { id: 10, amount: 200, date: new Date() },
+  ];
 
-      // const totalAmount = data.reduce((sum, item) => sum + item.amount, 0)
+  // const totalAmount = data.reduce((sum, item) => sum + item.amount, 0)
 
   return (
     <SafeAreaProvider>
@@ -28,30 +29,19 @@ export default function App() {
 
           <View style={styles.row1}>
 
-            <ProfileCircle />
+            <View style={styles.hamburgerContainer}>
+              <TouchableOpacity style={styles.hamburger} >
+                <Entypo name="menu" size={34} color="white" />
+              </TouchableOpacity>
+            </View>
+
+              <ProfileCircle />
 
           </View>
 
           <ScrollView style={styles.scroll}
-          contentContainerStyle={styles.scrollContent}
-          >
-
-            <Text
-            style={{              
-              color: 'white',
-              alignSelf: 'flex-start',
-
-              fontWeight: '500',
-              fontSize: 16,
-
-              marginTop: 10,
-              marginBottom: 40,
-              marginLeft: 20,
-            }}
-            >
-              Receipts from today
-            </Text>
-            
+          contentContainerStyle={styles.scrollContent} >
+                        
             {data.map((item) => ( <Receipt key={item.id}
             id={item.id}
             amount={item.amount}
@@ -76,13 +66,27 @@ const styles = StyleSheet.create({
 
   row1: {
     flex: .06,
-    flexDirection: 'row-reverse',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
 
     backgroundColor: '#1A1A1D',
 
     padding: 30,
+  },
+
+  hamburgerContainer:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  hamburger: {
+
+  },
+
+  profileContainer: {
+
   },
 
   scroll: {

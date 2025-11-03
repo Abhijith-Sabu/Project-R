@@ -1,7 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-
-import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import { StyleSheet, View, Text, Pressable } from "react-native";
 
 type ReceiptProps = {
     id: number;
@@ -16,7 +14,7 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
 
     return (
 
-            <View style={styles.receiptContainer} >
+            <Pressable style={styles.receiptContainer} >
 
                 <View style={styles.receiptHead} >
 
@@ -35,9 +33,9 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
                         <Text style={styles.amountContainer}>
                             ₹: {amount}
                         </Text>
-                        <TouchableOpacity style={styles.deleteButton}>
+                        {/* <TouchableOpacity style={styles.deleteButton}>
                             <MaterialIcons name="delete-outline" size={24} color="black" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
 
                 </View>
@@ -45,7 +43,7 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
                 <View style={styles.receiptBody} >
                 </View>
 
-            </View>
+            </Pressable>
     )
 }
 
@@ -72,17 +70,16 @@ const styles = StyleSheet.create({
         flex: 0.5,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
 
         position: 'relative',
+        gap: 20,
 
         borderTopLeftRadius: 10,
     },
 
     dateContainer: {
         color: 'white',
-
-        paddingLeft: 20,
     },
 
     id: {
@@ -90,8 +87,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         height: 25,
         width: 25,
-
-        position: 'absolute',
 
         left: 10, 
 
@@ -138,7 +133,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '#D3ECCD',
         backgroundColor: '#212121',
 
-        elevation: 50,
+        elevation: 10,
         
         // borderWidth:1,
         // borderColor: 'red',

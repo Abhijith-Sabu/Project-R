@@ -1,10 +1,12 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, View, Pressable, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import { Link } from "expo-router";
+import colors from "@/theme/colors";
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Receipt from "@/components/receipt";
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function AllReceipts() {
 
@@ -26,11 +28,19 @@ export default function AllReceipts() {
             <SafeAreaView style={styles.receiptContainer} >
 
                     <View style={styles.topnav} >
-                        <Link href="/settings" asChild>
-                            <Pressable style={styles.settings}>
-                                <Ionicons name="settings" size={24} color="white" />
-                            </Pressable>
-                        </Link>
+                        <View style={styles.topbuttonContainer}>
+                            <Link href="/settings" asChild>
+                                <TouchableOpacity style={styles.settings}>
+                                    <Ionicons name="settings" size={24} color="white" />
+                                </TouchableOpacity>
+                            </Link>
+                        </View>
+
+                        <View style={styles.topbuttonContainer}>
+                            <TouchableOpacity style={styles.filter}>
+                                <FontAwesome name="sliders" size={24} color="white" />
+                            </TouchableOpacity>
+                        </View>
                     </View>
 
                 <FlatList
@@ -62,16 +72,30 @@ const styles = StyleSheet.create({
     topnav: {
         flex: 0.1,
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
 
-        paddingLeft: 8,
-        backgroundColor: '#1A1A1D',
+        paddingHorizontal: 10,
+        backgroundColor: colors.background,
     },
 
     settings: {
-        width: 70,
+        padding: 8,
+        borderRadius: 10,
 
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: colors.background
+    },
+
+    topbuttonContainer: {
+        borderRadius: 10,
+        backgroundColor: colors.secbackground
+    },
+
+    filter: {
+        padding: 8,
+        borderRadius: 10,
+
+        backgroundColor: colors.background
     },
 
     receiptScroll: {

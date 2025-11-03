@@ -3,5 +3,6 @@ export default {
     // secbackground: '#212121',
     secbackground: '#2d2d30ff',
     foreground: '#06923E',
-    secforeground: '#D3ECCD'
+    secforeground: '#D3ECCD',
+    red: '#FB4141'
 }

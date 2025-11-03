@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Pressable } from "react-native";
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Pressable} from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
 import colors from "@/theme/colors";
@@ -9,67 +9,60 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 export default function Login() {
     return (
         <SafeAreaProvider>
-            <SafeAreaView style={styles.profileContainer}>
+            <SafeAreaView style={styles.profileContainer} edges={['top', 'right', 'left']}>
 
                 <ScrollView
                 contentContainerStyle={styles.scrollContainer} >
 
-                    <View style={styles.headerContainer}>
-                        <View style={styles.header}>
-
-                        </View>
-
-                    </View>
-
                     <View style={styles.row1}>
-                        <View style={styles.miniContainer}>
 
-                            <View style={styles.miniRow1} >
-                                <Pressable style={styles.userImage}>
-                                </Pressable>
+                        <View style={styles.miniRow1} >
+                            <View style={styles.userImageContainer}>
 
-                                <Pressable style={styles.userName}>
-                                    <Text style={{color: 'white'}}>
-                                        &northwind
-                                    </Text>
-                                </Pressable>
                             </View>
 
-                            <View style={styles.miniRow2} >
-                                <Text style={styles.miniRow2text}>
-                                    Anandhu S
-                                </Text>
-
-                                <Text style={styles.miniRow2text}>
-                                     DOB: 13-12-2002
+                            <View style={styles.userNameContainer} >
+                                <Text style={styles.userNme}>
+                                    northwind
                                 </Text>
                             </View>
-
-                            <View style={styles.miniRow3} ></View>
-
                         </View>
+
                     </View>
 
                     <View style={styles.row2}>
-                        <View style={styles.miniContainer}>
 
-                        </View>
                     </View>
 
                     <View style={styles.row3}>
-                        <View style={styles.miniContainer}>
 
-                        </View>
                     </View>
 
                     <View style={styles.row4}>
-                        <Link href="/login" asChild>
-                            <TouchableOpacity style={styles.logoutButton}>
-                                <AntDesign name="logout" size={24} color="black" />
-                                <Text>Logout</Text>
-                            </TouchableOpacity>
-                        </Link>
+
+                        <View style={styles.contact}>
+
+                            <Pressable style={styles.miniRow4}>
+                                <Text style={styles.contactText} >Contact</Text>
+                            </Pressable>
+                            <Pressable style={styles.miniRow4}>
+                                <Text style={styles.contactText} >Feedback</Text>
+                            </Pressable>
+
+                        </View>
+                        
+                        <View style={styles.bottomRow}>
+                            <Link href="/login" asChild >
+                                <TouchableOpacity style={styles.logoutButton}>
+                                    <AntDesign name="logout" size={24} color="black" />
+                                    <Text>Logout</Text>
+                                </TouchableOpacity>
+                            </Link>
+                        </View>
+
                     </View>
+
+                    <Text></Text>
 
                 </ScrollView>
 
@@ -85,42 +78,23 @@ const styles = StyleSheet.create({
     },
 
     scrollContainer: {
-        flexGrow: 1,
         flexDirection: 'column',
         alignItems: 'center',
 
-        backgroundColor: colors.background,
-    },
-
-    headerContainer: {
-        height: 70,
-        width: "100%",
-
         padding: 10,
-    },
 
-    header: {
-        height: '100%',
-        width: '100%',
+        gap: 10,
 
-        borderRadius: 10,
-        backgroundColor: colors.secbackground
+        backgroundColor: colors.background,
     },
 
     row1: {
         height: 250,
         width: '100%',
 
-        padding: 10,
-
-        backgroundColor: colors.background,
-    },
-
-    miniContainer: {
-        height: '100%',
-        width: '100%',
-
         borderRadius: 10,
+        elevation: 100,
+
         backgroundColor: colors.secbackground,
     },
 
@@ -134,51 +108,27 @@ const styles = StyleSheet.create({
 
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
-        backgroundColor: colors.secbackground,
+
+        backgroundColor: 'red'
     },
 
-    userImage: {
+    userImageContainer: {
         height: 50,
         width: 50,
 
         borderRadius: 25,
 
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
 
-    userName: {        
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        borderRadius: 10,
+    userNameContainer: {
         padding: 10,
-        backgroundColor: 'black'
+        borderRadius: 10,
+        backgroundColor: '#000000'
     },
 
-    miniRow2: {
-        flex:0.35,
-        flexDirection: 'column',
-        justifyContent: 'center',
-
-        padding: 8,
-
-        gap: 10,
-
-        backgroundColor: colors.secbackground
-    },
-
-    miniRow2text: {
-        color: 'white',
-        fontWeight: 500,
-    },
-
-    miniRow3: {
-        flex: 0.35,
-
-        borderBottomRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        backgroundColor: colors.secbackground
+    userNme: {
+        color: 'white'
     },
 
     row2: {
@@ -186,7 +136,10 @@ const styles = StyleSheet.create({
         width: '100%',
 
         padding: 10,
-        backgroundColor: colors.background,
+        borderRadius: 10,
+        elevation: 100,
+
+        backgroundColor: colors.secbackground,
     },
 
     row3: {
@@ -194,26 +147,51 @@ const styles = StyleSheet.create({
         width: '100%',
 
         padding: 10,
+        borderRadius: 10,
+        elevation: 100,
 
-        backgroundColor: colors.background,
+        backgroundColor: colors.secbackground,
+
     },
 
     row4: {
+        flexDirection: 'column',
+
+        width: '100%',
+
+        padding: 10,
+        borderRadius: 10,
+        elevation: 100,
+        gap: 60,
+
+        backgroundColor: colors.secbackground,
+    },
+
+    contact: {
+        width: '100%',
+    },
+
+    contactText: {
+        color: colors.secforeground,
+    },
+
+    miniRow4: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+
+        paddingVertical: 10,
+    },
+
+    bottomRow: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-
-        height: 200,
-        width: '100%',
-
-        paddingBottom: 10,
         
-        backgroundColor: colors.background,
+        width: '100%',
     },
 
     logoutButton: {
         flexDirection: 'row',
-        alignSelf: 'flex-end',
         alignItems: 'center',
         justifyContent: 'center',
 
