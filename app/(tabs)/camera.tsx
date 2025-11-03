@@ -134,7 +134,8 @@ const styles = StyleSheet.create({
         padding: 10,
 
         borderRadius: 10,
-        backgroundColor: '#06923E',
+        
+        backgroundColor: '#212121'
     },
 
     message: {
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 10,
 
-        backgroundColor: '#212121'
+        backgroundColor: '#06923E',
     },
 
     permissionButton:{

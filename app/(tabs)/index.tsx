@@ -20,6 +20,8 @@ export default function App() {
         { id: 10, amount: 200, date: new Date() },
       ];
 
+      // const totalAmount = data.reduce((sum, item) => sum + item.amount, 0)
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.mainContainer}>
@@ -75,10 +77,12 @@ const styles = StyleSheet.create({
   row1: {
     flex: .06,
     flexDirection: 'row-reverse',
+    alignItems: 'center',
+    justifyContent: 'space-between',
 
     backgroundColor: '#1A1A1D',
 
-    padding: 20,
+    padding: 30,
   },
 
   scroll: {
