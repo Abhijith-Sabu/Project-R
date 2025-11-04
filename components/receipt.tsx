@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
 
 type ReceiptProps = {
     id: number;
@@ -41,6 +41,21 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
                 </View>
 
                 <View style={styles.receiptBody} >
+                    <Text>
+                        ggg{"\n"}
+                        nn{"\n"}
+                        nn{"\n"}
+                        nnn{"\n"}
+                        nnn{"\n"}
+                        nnn
+                        {"\n"}nnnnnnnnnnnnnnnn
+                        {"\n"}
+                        nnn{"\n"}
+                        {"\n"}
+                        nn{"\n"}
+                        {"\n"}{"\n"}{"\n"}{"\n"}
+                        nnn{"\n"}
+                    </Text>
                 </View>
 
             </Pressable>
@@ -51,6 +66,7 @@ const styles = StyleSheet.create({
     receiptContainer: {
         height: 200,
         width: '90%',
+        maxWidth: 350,
 
         paddingBottom: 8,
         borderRadius: 10,
@@ -124,13 +140,14 @@ const styles = StyleSheet.create({
     },
 
     receiptBody: {
-        height: 150,
+        maxHeight: 150,
         minWidth: '100%',
 
         borderBottomLeftRadius: 10,
         borderBottomRightRadius: 10,
 
-        // backgroundColor: '#D3ECCD',
+        padding: 10,
+
         backgroundColor: '#212121',
 
         elevation: 10,

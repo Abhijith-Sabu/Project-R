@@ -8,22 +8,26 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 export default function RootLayout() {
   return (
   
-  <Tabs screenOptions={{headerShown: false,
+  <Tabs 
+  // tabBar={props=> <TabBar {...props} />}
+  screenOptions={{headerShown: false,
     tabBarInactiveTintColor: 'white',
     tabBarActiveTintColor: '#D3ECCD',
     sceneStyle: {backgroundColor: '#1A1A1D'},
     tabBarStyle: {
       position: 'absolute',
 
-      marginHorizontal: 40,
       bottom : 25,
+
+      marginHorizontal: '10%',
 
       flexDirection: 'row',
       alignSelf: 'center',
+      justifyContent: 'center',
       
       height: 50,
       width: '80%',
-      maxWidth: 600,
+      maxWidth: 500,
 
       backgroundColor: '#06923E',
 
@@ -31,9 +35,6 @@ export default function RootLayout() {
       borderRadius: 10,
       elevation: 0,
       shadowOpacity: 0,
-
-      // borderWidth:1,
-      // borderColor: 'red',
     },
 
     tabBarItemStyle: {
@@ -48,7 +49,9 @@ export default function RootLayout() {
     tabBarLabelStyle: {
       margin: 0,
     }
-  }}>
+  }
+}
+  >
 
     <Tabs.Screen
     name="index"
