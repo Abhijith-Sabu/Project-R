@@ -1,5 +1,7 @@
 import { StyleSheet, View, ScrollView, TouchableOpacity} from "react-native";
 import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { useNavigation } from "expo-router";
+import { DrawerActions } from "@react-navigation/native";
 
 import ProfileCircle from "@/components/profilecircle";
 import Receipt from "@/components/receipt";
@@ -8,6 +10,8 @@ import colors from "@/theme/colors";
 import Entypo from '@expo/vector-icons/Entypo';
 
 export default function Index() {
+
+  const navigation = useNavigation();
 
   const data = [
     { id: 1, amount: 345, date: new Date() },
@@ -31,7 +35,8 @@ export default function Index() {
           <View style={styles.row1}>
 
             <View style={styles.hamburgerContainer}>
-              <TouchableOpacity style={styles.hamburger} >
+              <TouchableOpacity style={styles.hamburger}
+              onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
                 <Entypo name="menu" size={34} color="white" />
               </TouchableOpacity>
             </View>
