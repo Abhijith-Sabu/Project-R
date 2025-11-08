@@ -3,6 +3,7 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 import ProfileCircle from "@/components/profilecircle";
 import Receipt from "@/components/receipt";
+import colors from "@/theme/colors";
 
 import Entypo from '@expo/vector-icons/Entypo';
 
@@ -49,9 +50,6 @@ export default function Index() {
 
           </ScrollView>
 
-          <View style={styles.row3} >
-          </View>
-
       </SafeAreaView>
     </SafeAreaProvider>
 
@@ -61,18 +59,18 @@ export default function Index() {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#1A1A1D',
+    backgroundColor: colors.background,
   },
 
   row1: {
-    flex: .06,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
 
-    backgroundColor: '#1A1A1D',
+    backgroundColor: colors.background,
 
-    padding: 30,
+    paddingHorizontal: 10,
+    paddingVertical: 15,
   },
 
   hamburgerContainer:{
@@ -85,13 +83,9 @@ const styles = StyleSheet.create({
 
   },
 
-  profileContainer: {
-
-  },
-
   scroll: {
     flex: 1,
-    backgroundColor: '#1A1A1D',
+    backgroundColor: colors.background,
   },
 
   scrollContent: {
@@ -99,16 +93,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
     padding: 10,
-    backgroundColor: '#1A1A1D',
+    backgroundColor: colors.background,
   },
-
-  row3: {
-    flex: 0.12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-
-    backgroundColor: '#1A1A1D',
-  },
-
 });

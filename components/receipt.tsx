@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 
 type ReceiptProps = {
     id: number;

@@ -56,8 +56,6 @@ export default function AllReceipts() {
                 )}
                 />
 
-                <View style={styles.bottomnav}></View>
-
             </SafeAreaView>
     )
 }
@@ -108,12 +106,4 @@ const styles = StyleSheet.create({
         // borderWidth:10,
         // borderColor: 'red',
     },
-
-    bottomnav: {
-        flex: 0.12,
-        alignItems: 'center',
-        justifyContent: 'center',
-
-        backgroundColor: '#1A1A1D',
-    }
 })  
