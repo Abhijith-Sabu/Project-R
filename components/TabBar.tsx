@@ -81,18 +81,19 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
               testID={options.tabBarButtonTestID}
               onPress={onPress}
               onLongPress={onLongPress}
-              style={styles.buttons}
+              style={[styles.buttons,
+                { 
+                  backgroundColor: isFocused ? colors.secbackground : 'transparent'
+                }
+              ]}
             >
               {IconComponent && IconComponent({
-                color: isFocused ? colors.secforeground : 'white',
+                color: isFocused ? 'white' : 'white',
               })}
-
-                {/* {tabIcons[route.name]({
-                  color: isFocused ? colors.secforeground : 'white'
-                })} */}
                 
                 <Text style={{
-                  color: isFocused ? colors.secforeground : 'white'}}>
+                  color: isFocused ? 'white' : 'white',
+                  fontSize: 10}}>
                   {label}
                 </Text>
 
@@ -121,11 +122,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
 
-    height: 55,
     minWidth: '80%',
     maxWidth: 500,
 
-    padding: 10,
+    padding: 5,
 
     bottom: 30,
 
@@ -141,5 +141,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     height: '100%',
+
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 8,
   }
 })

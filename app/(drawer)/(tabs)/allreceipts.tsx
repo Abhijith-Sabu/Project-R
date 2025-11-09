@@ -64,16 +64,15 @@ const styles = StyleSheet.create({
     receiptContainer: {
         flex: 1,
         
-        backgroundColor: "#1A1A1D"
+        backgroundColor: colors.background
     },
 
     topnav: {
-        flex: 0.1,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
 
-        paddingHorizontal: 10,
+        padding: 8,
         backgroundColor: colors.background,
     },
 
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
 
-        padding: 10,
+        paddingBottom: 70,
 
         // borderWidth:10,
         // borderColor: 'red',

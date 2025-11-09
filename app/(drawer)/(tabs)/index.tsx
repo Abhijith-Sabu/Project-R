@@ -37,11 +37,13 @@ export default function Index() {
             <View style={styles.hamburgerContainer}>
               <TouchableOpacity style={styles.hamburger}
               onPress={() => navigation.dispatch(DrawerActions.openDrawer())}>
-                <Entypo name="menu" size={34} color="white" />
+                <Entypo name="menu" size={24} color="white" />
               </TouchableOpacity>
             </View>
 
+            <View style={styles.hamburgerContainer}>
               <ProfileCircle />
+            </View>
 
           </View>
 
@@ -75,17 +77,18 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
 
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingVertical: 8,
   },
 
   hamburgerContainer:{
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+
+    paddingHorizontal: 10,
   },
 
   hamburger: {
-
   },
 
   scroll: {
@@ -97,7 +100,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
 
-    padding: 10,
+    paddingBottom: 70,
+
     backgroundColor: colors.background,
   },
 });

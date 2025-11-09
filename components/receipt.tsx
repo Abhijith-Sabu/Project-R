@@ -1,3 +1,4 @@
+import colors from "@/theme/colors";
 import React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 
@@ -42,19 +43,6 @@ export default function Receipt({id, amount, date}: ReceiptProps) {
 
                 <View style={styles.receiptBody} >
                     <Text>
-                        ggg{"\n"}
-                        nn{"\n"}
-                        nn{"\n"}
-                        nnn{"\n"}
-                        nnn{"\n"}
-                        nnn
-                        {"\n"}nnnnnnnnnnnnnnnn
-                        {"\n"}
-                        nnn{"\n"}
-                        {"\n"}
-                        nn{"\n"}
-                        {"\n"}{"\n"}{"\n"}{"\n"}
-                        nnn{"\n"}
                     </Text>
                 </View>
 
@@ -74,12 +62,13 @@ const styles = StyleSheet.create({
 
     receiptHead: {
         flexDirection: 'row',
+
         height: 45,
         width: '100%',
 
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
-        backgroundColor: '#06923E',
+        backgroundColor: colors.foreground,
     },
 
     headCol1: {
@@ -108,11 +97,11 @@ const styles = StyleSheet.create({
 
         borderRadius: 8,
 
-        backgroundColor: '#000000'
+        backgroundColor: colors.secbackground
     },
 
     idText: {
-        color: '#D3ECCD',
+        color: colors.secforeground,
     },
 
     headCol2: {
@@ -140,6 +129,7 @@ const styles = StyleSheet.create({
     },
 
     receiptBody: {
+        minHeight: 150,
         maxHeight: 150,
         minWidth: '100%',
 
@@ -148,9 +138,13 @@ const styles = StyleSheet.create({
 
         padding: 10,
 
-        backgroundColor: '#212121',
+        backgroundColor: colors.secbackground,
 
         elevation: 10,
+
+        // borderLeftWidth: 0.5,
+        // borderRightWidth: 0.5,
+        // borderBottomWidth: 0.5,
         
         // borderWidth:1,
         // borderColor: 'red',

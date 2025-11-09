@@ -1,8 +1,8 @@
 export default {
     background : "#1A1A1D",
-    // secbackground: '#212121',
-    secbackground: '#2d2d30ff',
+    secbackground: '#292929ff',
+    // secbackground: '#2d2d30ff',
     foreground: '#06923E',
     secforeground: '#D3ECCD',
-    red: '#FB4141'
+    red: '#FB4141',
 }

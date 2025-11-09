@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import colors from "@/theme/colors";
 
 export default function Settings() {
     return (
@@ -27,13 +28,13 @@ const styles = StyleSheet.create({
     settingsContainer: {
         flex: 1,
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 
     row1: {
         flex: 0.06,
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 
     row1text: {
@@ -47,6 +48,6 @@ const styles = StyleSheet.create({
     row2: {
         flex: 0.94,
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 })
