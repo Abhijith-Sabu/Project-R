@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import colors from "@/theme/colors";
 
 export default function Login() {
+
     return (
         <SafeAreaProvider>
             <SafeAreaView style={styles.loginContainer}>
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
 
-        backgroundColor: '#1A1A1D',
+        backgroundColor: colors.background,
     },
 
     miniContainer1: {
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 10,
 
-        backgroundColor: '#212121'
+        backgroundColor: colors.secbackground
     },
 
     titleContainer: {
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 10,
 
-        backgroundColor: '#06923E'
+        backgroundColor: colors.foreground
     },
 
 })

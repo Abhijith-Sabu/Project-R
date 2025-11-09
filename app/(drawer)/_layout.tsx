@@ -7,7 +7,7 @@ export default function DrawerLayout() {
         <Drawer
         screenOptions={{headerShown: false,
         drawerStyle: {
-            backgroundColor: colors.secbackground,
+            backgroundColor: colors.background,
             width: '60%',
         },
         drawerLabelStyle: {
@@ -30,7 +30,7 @@ export default function DrawerLayout() {
                     marginTop: 30,
 
                     borderRadius: 10,
-                    backgroundColor: colors.background
+                    backgroundColor: colors.secbackground
 
                 }
             }}

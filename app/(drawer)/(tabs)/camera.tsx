@@ -7,6 +7,7 @@ import { Link } from "expo-router";
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import colors from "@/theme/colors";
 
 export default function Camera() {
 
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 
     row1: {
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
 
-        backgroundColor: '#1A1A1D',
+        backgroundColor: colors.background,
 
         paddingHorizontal: 20,
     },
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 
     row2: {
@@ -135,7 +136,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 10,
         
-        backgroundColor: '#212121'
+        backgroundColor: colors.secbackground
     },
 
     message: {
@@ -155,7 +156,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 10,
 
-        backgroundColor: '#06923E',
+        backgroundColor: colors.foreground,
     },
 
     permissionButton:{
@@ -170,7 +171,7 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.6'
+        backgroundColor: 'rgba(0, 0, 0, 0.6)'
     },
 
     buttonContainer: {
@@ -180,7 +181,7 @@ const styles = StyleSheet.create({
 
         borderRadius: 30,
 
-        backgroundColor: '#06923E',
+        backgroundColor: colors.foreground,
     },
 
     button: {
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
         flex: 0.2,
         flexDirection: 'row',
 
-        backgroundColor: '#1A1A1D'
+        backgroundColor: colors.background
     },
 
     miniCol1: {
